@@ -2,11 +2,14 @@ const inquirer = require ('inquirer');
 const fs = require ('fs');
 
 const generateHTML = require ('./src/generateHTML');
-const Manager = require ('./lib/Manager');
-const Engineer = require ('./lib/Engineer');
-const Intern = require ('./lib/Intern');
+const Manager = require ('./lib/Manager.js');
+const Engineer = require ('./lib/Engineer.js');
+const Intern = require ('./lib/Intern.js');
 const {default: generate} = require ('@babel/generator');
-const { template } = require('@babel/core');
+
+//const { template } = require('@babel/core');
+
+const team = [ ]
 
 const internData = () => {
     return inquirer.prompt ([
@@ -32,8 +35,8 @@ const internData = () => {
         },
     ]) .then (answer => {
         const intern = new Intern (answer.internName, answer.internID, answer.internEmail, answer.school);
-        team.push (intern);
-        card()
+        //team.push (intern);
+        card();
     })
 }
 
@@ -83,13 +86,27 @@ const managerData = () => {
             name: 'managerEmail',
             message: 'What is the managers Email?'
         },
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: 'What is the managers office number?'
+        },
     ])
+}
+
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+    })
 }
 
 const init = function () {
     managerData().then (answer => {
         const manager = new Manager (answer.managerName, answer.managerID, answer.managerEmail, answer.officeNumber);
-        template.push(manager);
+        team.push(manager);
         card();
     })
 }
@@ -110,7 +127,7 @@ const card = () => {
         }
         else {
             console.log(team)
-            fs.writeFile(generateHTML(team))
+            writeFile(generateHTML(team))
         }
     })
 }

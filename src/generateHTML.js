@@ -4,25 +4,52 @@ function buildManager (manager) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${manager.name}</h3>
-                <h4> testing </h4>
+                <h4> Profile </h4>
             </div>
         <div class="card-body">
-            <p class="id">ID- ${manager.Id}</p>
-            <p class="email">Email- ${manager.email}</p>
-            <p class="officeID">Office Number- ${manager.officeNumber} </p>
+            <p class="id">ID - ${manager.ID}</p>
+            <p class="email">Email - ${manager.email}</p>
+            <p class="officeID">Office Number - ${manager.officeNumber} </p>
         </div>
         </div>
     </div>
-    
-    <li> ${manager.getName()} </li>`
+    `
 }
 
 function buildEngineer (engineer) {
-    return `<li> ${engineer.getName()}</li>`
+    return `
+    <div class="col-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h3>${engineer.name}</h3>
+                <h4> Profile </h4>
+            </div>
+        <div class="card-body">
+            <p class="id">ID - ${engineer.ID}</p>
+            <p class="email">Email - ${engineer.email}</p>
+            <p class="github">Office Github - ${engineer.github} </p>
+        </div>
+        </div>
+    </div>
+    `
 }
 
 function buildIntern (intern) {
-    return `<li> ${intern.getName()}</li>`
+    return `
+        <div class="col-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h3>${intern.name}</h3>
+                <h4> Profile </h4>
+            </div>
+        <div class="card-body">
+            <p class="id">ID- ${intern.ID}</p>
+            <p class="email">Email- ${intern.email}</p>
+            <p class="school">School - ${intern.school} </p>
+        </div>
+        </div>
+    </div>
+    `
 }
 
 function buildTeam (team) {
@@ -43,13 +70,31 @@ function generateHTML (team) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     </head>
 
     <body>
-     ${buildTeam(team)}   
+        <header>
+            <nav class="navbar" id="navbar">
+                <span class="navbar-brand mb-0 h1 w-100 text-center" id="nav"> Team Profile </span>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row justify-content-center" id="team-portfolio">
+                    ${buildTeam(team)}   
+                </div>
+            </div>
+        </main>
 
     </body>
 
-    <script href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"> 
+
     </html>`
 }
+
+module.exports = generateHTML;
