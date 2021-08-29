@@ -4,11 +4,11 @@ function buildManager (manager) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${manager.name}</h3>
-                <h4> Profile </h4>
+                <h4><i class="fas fa-mug-hot"></i> Manager </h4>
             </div>
         <div class="card-body">
             <p class="id">ID - ${manager.ID}</p>
-            <p class="email">Email - ${manager.email}</p>
+            <p class="email">Email - <a href="mailto:${manager.email}"> ${manager.email}</p>
             <p class="officeID">Office Number - ${manager.officeNumber} </p>
         </div>
         </div>
@@ -22,12 +22,12 @@ function buildEngineer (engineer) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${engineer.name}</h3>
-                <h4> Profile </h4>
+                <h4><i class="fas fa-glasses"></i> Engineer </h4>
             </div>
         <div class="card-body">
             <p class="id">ID - ${engineer.ID}</p>
-            <p class="email">Email - ${engineer.email}</p>
-            <p class="github">Office Github - ${engineer.github} </p>
+            <p class="email">Email - <a href="mailto:${engineer.email}"> ${engineer.email}</p>
+            <p class="github">Github - <a href="https://github.com/${engineer.github}">${engineer.github} </p>
         </div>
         </div>
     </div>
@@ -40,11 +40,11 @@ function buildIntern (intern) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${intern.name}</h3>
-                <h4> Profile </h4>
+                <h4><i class="fas fa-user-graduate"></i> Intern </h4>
             </div>
         <div class="card-body">
-            <p class="id">ID- ${intern.ID}</p>
-            <p class="email">Email- ${intern.email}</p>
+            <p class="id">ID - ${intern.ID}</p>
+            <p class="email">Email - <a href="mailto:${intern.email}"> ${intern.email}</p>
             <p class="school">School - ${intern.school} </p>
         </div>
         </div>
@@ -71,13 +71,14 @@ function generateHTML (team) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="./assets/style.css">
 
     </head>
 
     <body>
         <header>
             <nav class="navbar" id="navbar">
-                <span class="navbar-brand mb-0 h1 w-100 text-center" id="nav"> Team Profile </span>
+                <span class="navbar-brand mb-0 h1 w-100 text-center" id="nav"> My Team </span>
             </nav>
         </header>
 

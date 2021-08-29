@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+#nav {
+    font-size: x-large;
+    padding: auto;
+}
+
+.navbar {
+    background-color: rgba(233, 48, 48, .75);
+}
+
+.card-body {
+    background-color:  rgb(205, 205, 209)
+}
+
+.container {
+    margin: 50px;
+    justify-content: space-between;
+}
+
+.id {
+    background-color: rgb(252, 252, 253);
+}
+
+.email {
+    background-color: rgb(252, 252, 253);
+}
+
+.officeID {
+    background-color: rgb(252, 252, 253);
+}
+
+.school {
+    background-color: rgb(252, 252, 253);
+}
+
+.github {
+    background-color: rgb(252, 252, 253);
+}
