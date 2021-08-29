@@ -1,38 +1,116 @@
 const inquirer = require ('inquirer');
 const fs = require ('fs');
-const { inherits } = require('util');
 
-let employeeInfo = () => {
+const generateHTML = require ('./src/generateHTML');
+const Manager = require ('./lib/Manager');
+const Engineer = require ('./lib/Engineer');
+const Intern = require ('./lib/Intern');
+const {default: generate} = require ('@babel/generator');
+const { template } = require('@babel/core');
+
+const internData = () => {
     return inquirer.prompt ([
         {
-            type: 'list',
-            name: 'role',
-            message: 'What is the role of the employee?',
-            choices: ['Intern', 'Engineer', 'Manager']
+            type: 'input',
+            name: 'internName',
+            message: 'What is the interns name?'
         },
         {
             type: 'input',
-            name: 'name',
-            message: 'What is the name of the employee?'
+            name: 'internID',
+            message: 'What is the interns ID?'
         },
         {
             type: 'input',
-            name: 'ID',
-            message: 'What is the ID of the employee?'
+            name: 'internEmail',
+            message: 'What is the interns Email?'
         },
         {
             type: 'input',
-            name: 'email',
-            message: 'What is the email of the employee?'
+            name: 'school',
+            message: 'What is the school the intern attended?'
+        },
+    ]) .then (answer => {
+        const intern = new Intern (answer.internName, answer.internID, answer.internEmail, answer.school);
+        team.push (intern);
+        card()
+    })
+}
+
+const engineerData = () => {
+    return inquirer.prompt ([
+        {
+            type: 'input',
+            name: 'engineerName',
+            message: 'What is the engineers name?'
+        },
+        {
+            type: 'input',
+            name: 'engineerID',
+            message: 'What is the engineers ID?'
+        },
+        {
+            type: 'input',
+            name: 'engineerEmail',
+            message: 'What is the engineers Email?'
+        },
+        {
+            type: 'input',
+            name: 'githubUsername',
+            message: 'What is the engineers Github Username?'
+        },
+    ]) .then (answer => {
+        const engineer = new Engineer (answer.engineerName, answer.engineerID, answer.engineerEmail, answer.githubUsername);
+        team.push(engineer)
+        card();
+    })
+}
+
+const managerData = () => {
+    return inquirer.prompt ([
+        {
+            type: 'input',
+            name: 'managerName',
+            message: 'What is the managers name?'
+        },
+        {
+            type: 'input',
+            name: 'managerID',
+            message: 'What is the managers ID?'
+        },
+        {
+            type: 'input',
+            name: 'managerEmail',
+            message: 'What is the managers Email?'
         },
     ])
 }
 
-const writeFile = data => {
-    fs.writeFile ('./dis/index.html', data, err => {
-        if (err) {
-            console.log(err);
-            return;
+const init = function () {
+    managerData().then (answer => {
+        const manager = new Manager (answer.managerName, answer.managerID, answer.managerEmail, answer.officeNumber);
+        template.push(manager);
+        card();
+    })
+}
+
+const card = () => {
+    inquirer.prompt ({
+        type: 'list',
+        message: 'Would you like to add an employee?',
+        choices: ['Engineer', 'Intern', 'No'],
+        name: 'cardChoices'
+    })
+    .then(answer => {
+        if (answer.cardChoices === 'Engineer') {
+            engineerData()
+        }
+        else if (answer.cardChoices === 'Intern') {
+            internData()
+        }
+        else {
+            console.log(team)
+            fs.writeFile(generateHTML(team))
         }
     })
 }
