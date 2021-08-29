@@ -35,7 +35,7 @@ const internData = () => {
         },
     ]) .then (answer => {
         const intern = new Intern (answer.internName, answer.internID, answer.internEmail, answer.school);
-        //team.push (intern);
+        team.push (intern);
         card();
     })
 }

@@ -56,7 +56,7 @@ function buildTeam (team) {
     const HTML = [];
     HTML.push (team.filter(teamMember => teamMember.getRole() === 'Manager').map(manager => buildManager (manager)));
     HTML.push (team.filter(teamMember => teamMember.getRole() === 'Engineer').map(engineer => buildEngineer (engineer)));
-    HTML.push (team.filter(teamMember => teamMember.getRole() === 'intern').map(intern => buildIntern (intern)));
+    HTML.push (team.filter(teamMember => teamMember.getRole() === 'Intern').map(intern => buildIntern (intern)));
     
     return HTML.join("")
 }
