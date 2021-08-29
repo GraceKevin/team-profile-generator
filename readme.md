@@ -3,6 +3,11 @@
   * [Installation](#installation)
   * [Questions](#questions)
   * [License](#license)
+
+
+  # Video Walkthrough
+  * To view the application in action, please click the link below.
+  https://drive.google.com/file/d/1iW4HfzLaij8GMpi8CuswQAKcy_1ov33E/view
   
   # Installation
     npm install (fs, inquirer, jest, babel)
