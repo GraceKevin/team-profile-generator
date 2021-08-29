@@ -2,13 +2,13 @@ function buildManager (manager) {
     return `
     <div class="col-4">
         <div class="card h-100">
-            <div class="card-header">
+            <div class="card-header" id="card-header">
                 <h3>${manager.name}</h3>
                 <h4><i class="fas fa-mug-hot"></i> Manager </h4>
             </div>
         <div class="card-body">
             <p class="id">ID - ${manager.ID}</p>
-            <p class="email">Email - <a href="mailto:${manager.email}"> ${manager.email}</p>
+            <p class="email">Email - <a href="mailto:${manager.email}"> ${manager.email}</a></p>
             <p class="officeID">Office Number - ${manager.officeNumber} </p>
         </div>
         </div>
@@ -20,14 +20,14 @@ function buildEngineer (engineer) {
     return `
     <div class="col-4">
         <div class="card h-100">
-            <div class="card-header">
+            <div class="card-header" id="card-header">
                 <h3>${engineer.name}</h3>
                 <h4><i class="fas fa-glasses"></i> Engineer </h4>
             </div>
         <div class="card-body">
             <p class="id">ID - ${engineer.ID}</p>
-            <p class="email">Email - <a href="mailto:${engineer.email}"> ${engineer.email}</p>
-            <p class="github">Github - <a href="https://github.com/${engineer.github}">${engineer.github} </p>
+            <p class="email">Email - <a href="mailto:${engineer.email}"> ${engineer.email}</a></p>
+            <p class="github">Github - <a href="https://github.com/${engineer.github}">${engineer.github}</a> </p>
         </div>
         </div>
     </div>
@@ -38,13 +38,13 @@ function buildIntern (intern) {
     return `
         <div class="col-4">
         <div class="card h-100">
-            <div class="card-header">
+            <div class="card-header" id="card-header">
                 <h3>${intern.name}</h3>
                 <h4><i class="fas fa-user-graduate"></i> Intern </h4>
             </div>
         <div class="card-body">
             <p class="id">ID - ${intern.ID}</p>
-            <p class="email">Email - <a href="mailto:${intern.email}"> ${intern.email}</p>
+            <p class="email">Email - <a href="mailto:${intern.email}"> ${intern.email}</a></p>
             <p class="school">School - ${intern.school} </p>
         </div>
         </div>

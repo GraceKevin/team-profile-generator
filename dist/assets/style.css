@@ -6,10 +6,26 @@
 #nav {
     font-size: x-large;
     padding: auto;
+    color: white;
 }
 
 .navbar {
     background-color: rgba(233, 48, 48, .75);
+    padding: 25px;
+    margin: 25px;
+}
+
+#card-header {
+    background-color: rgb(51, 96, 230);
+}
+
+.card {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+}
+
+h3,
+h4  {
+    color: white;
 }
 
 .card-body {
